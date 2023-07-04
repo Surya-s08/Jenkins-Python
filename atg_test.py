@@ -1,19 +1,9 @@
-from selenium import webdriver
-
-# Set up the web driver
-driver = webdriver.Chrome()
-
-try:
-    # Open the atg.world website
-    driver.get("https://atg.world")
-
-    # Check if the website loaded successfully
-    assert "atg.world" in driver.title
-    print("Website loaded successfully. Test Passed!")
-
-except Exception as e:
-    print(f"Website failed to load. Test Failed! Error: {e}")
-
-finally:
-    # Close the web driver
-    driver.quit()
+import requests
+def test_website_loads_properly():
+    response = requests.get("https://atg.world")
+    assert response.status_code == 200
+def test_website_loads_properly():
+    print("Starting website load test...")
+    response = requests.get("https://atg.world")
+    assert response.status_code == 200
+    print("Website loaded successfully!")
